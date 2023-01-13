@@ -20,7 +20,7 @@ public class BinarySearchTree {
     private void add(BinaryNode parent, BinaryNode x)
     {
         if(parent == null) return;
-        if(x.getValue().compareTo(parent.getValue()) < 0)
+        if(x.getValue().compareTo(parent.getValue()) > 0)
             if(parent.left()==null)
                 parent.setLeft(x);
             else
@@ -31,10 +31,7 @@ public class BinarySearchTree {
         else
             add(parent.right(),x);
     }
-    public int compareTo(Object temp){
 
-        return -1;
-    }
     public String preOrder()
     {
         return preOrder(root).trim();
@@ -154,56 +151,64 @@ public class BinarySearchTree {
         else
             return search(parent.right(),target);
     }
+
     private BinaryNode remove(BinaryNode startNode, Comparable target)
     {
         BinaryNode nodeToRemove, inorderSuccessor;
         BinaryNode parent = search(startNode,target);
 
-        if(parent == null) return null;
+        if(parent == null)
+            return null;
 
         //decide if it is a left or right child
         boolean isLeft = parent.left()!=null &&
                 parent.left().getValue().equals(target);
 
-        nodeToRemove = isLeft ? parent.left() : parent.right();
+        nodeToRemove = isLeft?parent.left():parent.right();
 
         //degree 0
+        if(nodeToRemove.left() == null && nodeToRemove.right() == null)
+        {
+            if(isLeft)
+                parent.setLeft(null);
+            else
+                parent.setRight(null);
+            return nodeToRemove;
+        }
         //degree 1
+        else if(nodeToRemove.left() == null)
+        {
+            if(isLeft)
+                parent.setLeft(nodeToRemove.right());
+            else
+                parent.setRight(nodeToRemove.right());
+            nodeToRemove.setRight(null);
+            return nodeToRemove;
+        }
+        else if(nodeToRemove.right() == null)
+        {
+            if(isLeft)
+                parent.setLeft(nodeToRemove.left());
+            else
+                parent.setRight(nodeToRemove.left());
+            nodeToRemove.setLeft(null);
+            return nodeToRemove;
+        }
         //degree 2
-    }
-    private BinaryNode remove(BinaryNode startNode, Comparable target)
-    {
-        BinaryNode nodeToRemove, inorderSuccessor;
-        BinaryNode parent = search(startNode,target);
+        else
+        {
+            inorderSuccessor = successor(nodeToRemove);
+            swap(inorderSuccessor, nodeToRemove);
+            if(nodeToRemove.right()==inorderSuccessor)
+            {
+                nodeToRemove.setRight(inorderSuccessor.left());
+                inorderSuccessor.setRight(null);
+                return inorderSuccessor;
+            }
+            return remove(nodeToRemove.right(), target);
+        }
 
-        if(parent == null) return null;
 
-        //decide if it is a left or right child
-        boolean isLeft = parent.left()!=null &&
-                parent.left().getValue().equals(target);
-
-        nodeToRemove = isLeft ? parent.left() : parent.right();
-
-        //degree 0
-        //degree 1
-        //degree 2
-    }
-    private BinaryNode remove(BinaryNode startNode, Comparable target)
-    {
-        BinaryNode nodeToRemove, inorderSuccessor;
-        BinaryNode parent = search(startNode,target);
-
-        if(parent == null) return null;
-
-        //decide if it is a left or right child
-        boolean isLeft = parent.left()!=null &&
-                parent.left().getValue().equals(target);
-
-        nodeToRemove = isLeft ? parent.left() : parent.right();
-
-        //degree 0
-        //degree 1
-        //degree 2
     }
 
 

@@ -39,6 +39,17 @@ public class BinaryNode {
     public void setValue(Object value) {
         myValue.equals(value);
     }
-
+    public Comparable compareTo(BinaryNode temp){
+        Comparable ret;
+        if(myValue.equals(temp.getValue())){
+            ret=0;
+        }
+        else if(myValue>temp.getValue()>0){
+            ret=1;
+        }
+        else
+            ret=-1;
+        return ret;
+    }
     //other methods not shown.
 }

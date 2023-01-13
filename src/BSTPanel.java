@@ -30,6 +30,7 @@ public class BSTPanel extends JPanel implements MouseListener, ActionListener {
         setBackground(new Color(0xFFD9C4A0, true));
     }
     public void paint(Graphics g){
+        g.setColor(new Color(0xFFD9C4A0, true));
         g.drawRect(0,0,getWidth(),getHeight());
     }
 
