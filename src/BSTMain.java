@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class BSTMain {
     public static void main(String args[]) {
-        BinarySearchTree tree = new BinarySearchTree();
+        /*BinarySearchTree tree = new BinarySearchTree();
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -21,6 +21,7 @@ public class BSTMain {
         }
         System.out.println("preOrder " + tree.preOrder());
         System.out.println("inOrder " + tree.inOrder());
-        System.out.println("levelOrder " + tree.levelOrder());
+        System.out.println("levelOrder " + tree.levelOrder());*/
+        new BSTFrame();
     }
 }

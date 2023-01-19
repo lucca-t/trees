@@ -18,26 +18,35 @@ import javax.swing.JRadioButton;
 public class BSTPanel extends JPanel implements MouseListener, ActionListener {
     JButton start = new JButton();
     public  BSTPanel(){
-        start = new JButton();
-        add(start);
-        start.setText("Start Game");
-        start.setFocusable(false);
-        start.addActionListener(this);
+
         setVisible(true);
         addMouseListener(this);
-        start.setEnabled(true);
 
-        setBackground(new Color(0xFFD9C4A0, true));
+        startButon();
     }
     public void paint(Graphics g){
-        g.setColor(new Color(0xFFD9C4A0, true));
-        g.drawRect(0,0,getWidth(),getHeight());
+        g.setColor(new Color(0xE7E9EC));
+        g.fillRect(0,0,getWidth(),getHeight());
+        g.setColor(Color.black);
+        g.fillRoundRect(100,10,100,100,10,10);
     }
 
     public void mousePressed(MouseEvent e){}
     public void mouseReleased(MouseEvent e){}
     public void mouseEntered(MouseEvent e){}
     public void mouseExited(MouseEvent e){}
-    public void mouseClicked(MouseEvent e){}
+    public void mouseClicked(MouseEvent e){
+        int x = e.getX();
+        int y = e.getY();
+        System.out.println("oc is (" + x + "," + y + ")");
+    }
     public void actionPerformed(ActionEvent e){}
+    /*public void startButon(){
+        start = new JButton();
+        add(start);
+        start.setText("Start Game");
+        start.setFocusable(false);
+        start.addActionListener(this);
+        start.setEnabled(true);
+    }*/
 }
