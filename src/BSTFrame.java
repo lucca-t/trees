@@ -11,9 +11,10 @@ public class BSTFrame extends JFrame  {
         setSize (WIDTH, HEIGHT);
         setResizable(false);
         setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
+
         setTitle("BS Tree");
         add(new BSTPanel());
+        setVisible(true);
     }
 
 }

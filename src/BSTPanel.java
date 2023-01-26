@@ -16,19 +16,60 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 public class BSTPanel extends JPanel implements MouseListener, ActionListener {
-    JButton start = new JButton();
+    BinarySearchTree tree;
     public  BSTPanel(){
 
         setVisible(true);
         addMouseListener(this);
+        tree=new BinarySearchTree();
 
-        startButon();
     }
     public void paint(Graphics g){
-        g.setColor(new Color(0xE7E9EC));
-        g.fillRect(0,0,getWidth(),getHeight());
-        g.setColor(Color.black);
-        g.fillRoundRect(100,10,100,100,10,10);
+        /*g.setColor(new Color(0xE7E9EC));
+        g.fillRect(0,0,getWidth(),getHeight());*/
+        g.setColor(new Color(0xCCCCCC));
+        g.drawLine(720,0,720,10);
+        //level 1
+        g.fillOval(705,20,30,30);
+        //level 2
+        g.fillOval(345,100,30,30);
+        g.fillOval(1065,100,30,30);
+        //level3
+        g.fillOval(165,180,30,30);
+        g.fillOval(525,180,30,30);
+
+        g.fillOval(885,180,30,30);
+        g.fillOval(1245,180,30,30);
+        //level 4
+        g.fillOval(75,260,30,30);
+        g.fillOval(255,260,30,30);
+        g.fillOval(435,260,30,30);
+        g.fillOval(615,260,30,30);
+
+        g.fillOval(795,260,30,30);
+        g.fillOval(975,260,30,30);
+        g.fillOval(1155,260,30,30);
+        g.fillOval(1335,260,30,30);
+        //level 5
+        g.fillOval(30,340,30,30);
+        g.fillOval(120,340,30,30);
+        g.fillOval(210,340,30,30);
+        g.fillOval(300,340,30,30);
+
+        g.fillOval(390,340,30,30);
+        g.fillOval(480,340,30,30);
+        g.fillOval(570,340,30,30);
+        g.fillOval(660,340,30,30);
+
+        g.fillOval(750,340,30,30);
+        g.fillOval(840,340,30,30);
+        g.fillOval(930,340,30,30);
+        g.fillOval(1020,340,30,30);
+
+        g.fillOval(1110,340,30,30);
+        g.fillOval(1200,340,30,30);
+        g.fillOval(1290,340,30,30);
+        g.fillOval(1380,340,30,30);
     }
 
     public void mousePressed(MouseEvent e){}
